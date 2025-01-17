@@ -18,8 +18,9 @@ public class Test {
             System.out.println("5. Cerca per autore(libro)");
             System.out.println("6. Cerca per titolo");
             System.out.println("7. Cerca per genere(libro)");
-            System.out.println("8. Aggiorna elemento");
-            System.out.println("9. Visualizza statistiche");
+            System.out.println("8. Cerca per periodicità(rivista)");
+            System.out.println("9. Aggiorna elemento");
+            System.out.println("10. Visualizza statistiche");
             System.out.println("0. Esci");
 
 
@@ -117,6 +118,14 @@ public class Test {
                         System.out.println("----------");
                         break;
                     case 8:
+                        // Ricerca per periodicità
+                        System.out.println("Inserisci periodicità:");
+                        String periodicitaRicerca = scanner.nextLine();
+                        archivio.ricercaPeriodicita(periodicitaRicerca)
+                                .forEach(rivista -> System.out.println(rivista.getTitolo()));
+                        System.out.println("----------");
+                        break;
+                    case 9:
                         // Aggiorna elemento
                         System.out.println("Inserisci ISBN dell'elemento da aggiornare:");
                         String isbnAggiornare = scanner.nextLine();
@@ -136,7 +145,7 @@ public class Test {
                         System.out.println("Elemento aggiornato con successo!");
                         System.out.println("----------");
                         break;
-                    case 9:
+                    case 10:
                         // Visualizza statistiche
                         archivio.statistiche();
                         break;

@@ -53,13 +53,19 @@ public class Archivio {
                 .collect(Collectors.toList());
     }
 
+    public List<Rivista> ricercaPeriodicita(String periodicita){
+        return catalogo.stream()
+                .filter(e -> e instanceof Rivista)
+                .map(e -> (Rivista) e)
+                .filter(rivista -> rivista.getPeriodicita().equalsIgnoreCase(periodicita))
+                .collect(Collectors.toList());
+    }
 
     public List<Elementi> ricercaTitolo(String titolo) {
         return catalogo.stream()
                 .filter(e -> e.getTitolo().equalsIgnoreCase(titolo))
                 .collect(Collectors.toList());
     }
-
 
     public void aggiornaElemento(String isbn, Elementi nuovoElemento) throws Exception {
         Elementi elemetoDaAggiornare = ricercaCodice(isbn);
